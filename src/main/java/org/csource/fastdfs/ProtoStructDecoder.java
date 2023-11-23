@@ -39,7 +39,7 @@ public class ProtoStructDecoder<T extends StructBase> {
 
     offset = 0;
     for (int i = 0; i < results.length; i++) {
-      results[i] = clazz.newInstance();
+      results[i] = clazz.getDeclaredConstructor().newInstance();
       results[i].setFields(bs, offset);
       offset += fieldsTotalSize;
     }
